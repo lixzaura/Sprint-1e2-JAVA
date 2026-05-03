@@ -3,9 +3,9 @@ package br.com.soulmove.missao;
 import br.com.soulmove.usuario.Usuario;
 
 abstract class Missao {
-    private String titulo; // o titulo da missão
-    private String desc; //descrição
-    private int pontos; //quantos pontos o usuário recebe ao completar a missão
+    String titulo; // o titulo da missão
+    String desc; //descrição
+    int pontos; //quantos pontos o usuário recebe ao completar a missão
 
 
 
