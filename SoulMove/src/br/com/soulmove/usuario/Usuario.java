@@ -1,5 +1,9 @@
 package br.com.soulmove.usuario;
 
+import br.com.soulmove.missao.Missao;
+
+import java.util.ArrayList;
+
 public class Usuario {
     //private int id;
     private String nome;
@@ -12,6 +16,8 @@ public class Usuario {
     private double kmTrem;
     private int viagensOnibus;
     private double kmOnibus;
+
+    private ArrayList<Integer> missoesCumpridas; //pelo id
 
     //construtor
 
@@ -111,6 +117,20 @@ public class Usuario {
         this.pontos += pontos;
     }
 
+
+    public void addMissao(Missao missao){
+        missoesCumpridas.add(missoesCumpridas.size()-1, missao.getId());
+    }
+    public void addMissao(int id){
+        missoesCumpridas.add(missoesCumpridas.size()-1, id);
+    }
+
+    public boolean verificarDisponibilidade(Missao missao){
+        if(missoesCumpridas.contains(missao.getId())){
+            return false;
+        }
+        return true;
+    }
 
 
 

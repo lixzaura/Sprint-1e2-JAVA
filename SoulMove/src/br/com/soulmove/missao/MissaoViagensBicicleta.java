@@ -5,9 +5,11 @@ import br.com.soulmove.usuario.Usuario;
 public class MissaoViagensBicicleta extends Missao implements Cumprivel{
 
     public MissaoViagensBicicleta(){
+        id = 1;
         pontos = 30;
         titulo = "Faça 3 viagens de bicicleta";
         desc = "Faça 3 viagens de bicicleta para promover a sustentabilidade e resgatar os pontos 😊";
+
     }
 
 
