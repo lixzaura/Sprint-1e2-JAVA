@@ -6,8 +6,7 @@ public abstract class Missao {
     String titulo; // o titulo da missão
     String desc; //descrição
     int pontos;//quantos pontos o usuário recebe ao completar a missão
-    int id;
-
+    String id; // --> # --> SiglaDaMissao --> numero da instancia dessa missão
 
 
     //metodos acessores
@@ -24,12 +23,11 @@ public abstract class Missao {
         return titulo;
     }
 
-    public int getId() {
-        return id;
-    }
+    public String getId() {return id;}
 
     public void missaoCumprida(Usuario user){
         user.addPontos(this.pontos);
+        user.addMissao(this.id);
     }
 
 }

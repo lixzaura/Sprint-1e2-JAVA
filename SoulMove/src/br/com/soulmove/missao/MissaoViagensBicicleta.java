@@ -4,21 +4,20 @@ import br.com.soulmove.usuario.Usuario;
 
 public class MissaoViagensBicicleta extends Missao implements Cumprivel{
 
-    public MissaoViagensBicicleta(){
-        id = 1;
-        pontos = 30;
-        titulo = "Faça 3 viagens de bicicleta";
-        desc = "Faça 3 viagens de bicicleta para promover a sustentabilidade e resgatar os pontos 😊";
-
+    public MissaoViagensBicicleta(int id_num){
+        this.id = "#VBC" + id_num;
+        this.pontos = 30;
+        this.titulo = "Faça 3 viagens de bicicleta";
+        this.desc = "Faça 3 viagens de bicicleta para promover a sustentabilidade e resgatar os pontos 😊";
     }
 
 
     @Override
     public boolean verificarCumprida(Usuario user) {
-        if (/*checar disponibilidade &&*/ user.getViagensBicicleta() > 3)
-            return true;
-
-
+        if (user.isDisponivel(this) && user.getViagensBicicleta() > 3){
+            this.missaoCumprida(user);
+             return true;
+        }
         return false;
 
     }
