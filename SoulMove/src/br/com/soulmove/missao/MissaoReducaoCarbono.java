@@ -11,7 +11,7 @@ public class MissaoReducaoCarbono extends Missao implements Cumprivel{
     public MissaoReducaoCarbono(int id_num){
         this.id = "#RC" + id_num;
         this.pontos = 40;
-        this.titulo = "Reduza 10kg de emissão de carbono";
+        this.titulo = "Reduzir emissão";
         this.desc =   "Reduza 10kg de emissão de carbono substituindo carro por transporte coletivo para resgatar os pontos 😊";
     }
 

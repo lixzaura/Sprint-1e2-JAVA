@@ -7,7 +7,7 @@ public class MissaoViagensColetivo extends Missao implements Cumprivel{
     public MissaoViagensColetivo(int id_num){
         this.id = "#VTC" + id_num;
         this.pontos = 20;
-        this.titulo = "Faça 5 viagens de transporte coletivo";
+        this.titulo = "Viagens de transporte coletivo";
         this.desc = "Faça 5 viagens em transportes coletivos como Ônibus, metrô ou trem";
   }
 
