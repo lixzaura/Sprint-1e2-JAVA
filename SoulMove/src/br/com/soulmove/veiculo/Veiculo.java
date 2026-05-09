@@ -14,7 +14,7 @@ abstract class Veiculo {
 
     //métodos exclusivos da classe
 
-    public double calcularEmissao(double kmPercorrido, double emissaoPorKm) {
+    public double calcularEmissao(double kmPercorrido) {
         return kmPercorrido * emissaoPorKm;
     }
 

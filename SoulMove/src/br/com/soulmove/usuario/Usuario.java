@@ -3,6 +3,7 @@ package br.com.soulmove.usuario;
 import br.com.soulmove.missao.Missao;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Usuario {
     //private int id;
@@ -14,10 +15,12 @@ public class Usuario {
     private double kmBicicleta;
     private int viagensTrem;
     private double kmTrem;
+    private int viagensMetro;
+    private double kmMetro;
     private int viagensOnibus;
     private double kmOnibus;
 
-    private ArrayList<Integer> missoesCumpridas; //pelo id
+    private List<String> missoesCumpridas = new ArrayList<>(); //pelo id
 
     //construtor
 
@@ -36,96 +39,78 @@ public class Usuario {
 
     //metodos acessores
 
+
     public String getNome() {
         return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
     }
 
     public int getPontos() {
         return pontos;
     }
 
-    public void setPontos(int pontos) {
-        this.pontos = pontos;
-    }
-
     public double getCreditos() {
         return creditos;
-    }
-
-    public void setCreditos(double creditos) {
-        this.creditos = creditos;
     }
 
     public int getViagensBicicleta() {
         return viagensBicicleta;
     }
 
-    public void setViagensBicicleta(int viagensBicicleta) {
-        this.viagensBicicleta = viagensBicicleta;
-    }
-
-    public double getKmBicicleta() {
-        return kmBicicleta;
-    }
-
-    public void setKmBicicleta(double kmBicicleta) {
-        this.kmBicicleta = kmBicicleta;
-    }
-
     public int getViagensTrem() {
         return viagensTrem;
-    }
-
-    public void setViagensTrem(int viagensTrem) {
-        this.viagensTrem = viagensTrem;
-    }
-
-    public double getKmTrem() {
-        return kmTrem;
-    }
-
-    public void setKmTrem(double kmTrem) {
-        this.kmTrem = kmTrem;
     }
 
     public int getViagensOnibus() {
         return viagensOnibus;
     }
 
-    public void setViagensOnibus(int viagensOnibus) {
-        this.viagensOnibus = viagensOnibus;
+    public int getViagensMetro() {
+        return viagensMetro;
+    }
+
+    public double getKmBicicleta() {
+        return kmBicicleta;
+    }
+
+    public double getKmTrem() {
+        return kmTrem;
     }
 
     public double getKmOnibus() {
         return kmOnibus;
     }
 
-    public void setKmOnibus(double kmOnibus) {
-        this.kmOnibus = kmOnibus;
-    }
-
-    public int getViagensColetivo(){
-        return viagensTrem + viagensOnibus;
+    public double getKmMetro() {
+        return kmMetro;
     }
 
     //outros métodos
+
+    //metodos pra adicionar
     public void addPontos(int pontos){
         this.pontos += pontos;
     }
 
+    public void addViagemBicicleta(){this.viagensBicicleta += 1;}
+    public void addViagemTrem(){this.viagensTrem += 1;}
+    public void addViagemOnibus(){this.viagensOnibus += 1;}
+    public void addViagemMetro(){this.viagensMetro +=1;}
+
+    public void addKmBicicleta(double km){this.kmBicicleta +=km;}
+    public void addKmTrem(double km){this.kmTrem +=km;}
+    public void addKmOnibus(double km){this.kmOnibus +=km;}
+    public void addKmMetro(double km){this.kmMetro +=km;}
+
 
     public void addMissao(Missao missao){
-        missoesCumpridas.add(missoesCumpridas.size()-1, missao.getId());
+
+        missoesCumpridas.add(missao.getId());
     }
-    public void addMissao(int id){
-        missoesCumpridas.add(missoesCumpridas.size()-1, id);
+    public void addMissao(String id){
+        missoesCumpridas.add(id);
     }
 
-    public boolean verificarDisponibilidade(Missao missao){
+    public boolean isDisponivel(Missao missao){
         if(missoesCumpridas.contains(missao.getId())){
             return false;
         }
@@ -133,5 +118,7 @@ public class Usuario {
     }
 
 
-
+    public int getViagensColetivo() {
+        return viagensTrem + viagensMetro + viagensOnibus;
+    }
 }
