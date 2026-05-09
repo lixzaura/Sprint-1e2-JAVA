@@ -2,10 +2,11 @@ package br.com.soulmove.missao;
 
 import br.com.soulmove.usuario.Usuario;
 
-abstract class Missao {
+public abstract class Missao {
     String titulo; // o titulo da missão
     String desc; //descrição
-    int pontos; //quantos pontos o usuário recebe ao completar a missão
+    int pontos;//quantos pontos o usuário recebe ao completar a missão
+    int id;
 
 
 
@@ -23,7 +24,12 @@ abstract class Missao {
         return titulo;
     }
 
+    public int getId() {
+        return id;
+    }
+
     public void missaoCumprida(Usuario user){
         user.addPontos(this.pontos);
     }
+
 }
