@@ -1,5 +1,7 @@
 package br.com.soulmove;
 
+import br.com.soulmove.usuario.Usuario;
+
 import java.util.Scanner;
 
 public class SoulMove {
@@ -30,6 +32,7 @@ public class SoulMove {
 
                 case 1:
                     System.out.println("\n" + "- - - Cadastrar usuário - - -" + "\n");
+                    cadastrarUsuario();
                     break;
 
                 case 2:
@@ -57,5 +60,34 @@ public class SoulMove {
                     break;
             }
         }
+    }
+
+    private static void cadastrarUsuario(){
+        Scanner leitura = new Scanner(System.in);
+        System.out.println("Insira o nome do usuário");
+        String nome = leitura.next() + leitura.nextLine();
+
+        Usuario user = new Usuario(nome);
+
+    }
+
+    private static void calcularEmissao(){
+        System.out.println("Insira o veiculo (sem acentos e minusculo)");
+        do {
+
+        }
+    }
+
+    private static boolean isVeiculo(String veiculo){
+        switch (veiculo.toLowerCase()){
+            case "carro" ->     {return true;}
+            case "trem" ->      {return true;}
+            case "metro" ->     {return true;}
+            case "onibus" ->    {return true;}
+            case "bicicleta" -> {return true;}
+            case "moto" ->     {return true;}
+        }
+
+        return false;
     }
 }
