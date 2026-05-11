@@ -63,6 +63,7 @@ public class SoulMove {
 
                 case 4:
                     System.out.println("\n" + "- - - Converter pontos - - -" + "\n");
+                    converterPontos();
                     break;
 
                 case 5:
@@ -147,6 +148,20 @@ public class SoulMove {
         double km = leitura.nextDouble();
         Veiculo v = getVeiculo(veiculo);
         System.out.println("⋮ ≫ Você vai emitir " + v.calcularEmissao(km) + " Kg de carbono");
+
+        System.out.println("\n" + "› Insira qualquer tecla para continuar: ");
+        leitura.next();
+    }
+
+    private static void converterPontos(){
+        Scanner leitura = new Scanner(System.in);
+
+        System.out.println("▸⋮ ⌞ Insira a quantidade de pontos que deseja converter em R$: ⌝");
+        int pontosCon = leitura.nextInt();
+
+        double conversao = pontosCon * 0.009;
+
+        System.out.println("⋮ ≫ " + pontosCon + " pontos é igual a: R$" + String.format("%.2f", conversao));
 
         System.out.println("\n" + "› Insira qualquer tecla para continuar: ");
         leitura.next();
