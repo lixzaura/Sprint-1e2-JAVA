@@ -29,7 +29,7 @@ public class SoulMove {
         int opcao = -1;
 
         while (opcao != 0) {
-
+            System.out.println("\n");
             System.out.println("""
                     ✮⋆˙ Escolha uma das opções abaixo:
                     
@@ -88,80 +88,99 @@ public class SoulMove {
 
     private static void cadastrarUsuario(){
         Scanner leitura = new Scanner(System.in);
-        System.out.println("Insira o nome do usuário");
+        System.out.println("▸⋮ ⌞ Insira o nome do usuário: ⌝");
         String nome = leitura.next() + leitura.nextLine();
 
         Usuario user = new Usuario(nome);
         usuarios.add(user);
 
+        System.out.println("\n" + "› Insira qualquer tecla para continuar: ");
+        leitura.next();
     }
 
     private static void verificarDados(){
-        System.out.println(user.getNome() + " // Dados");
-        System.out.println("\nPontos: " + user.getPontos());
-        System.out.println("\nPassagems: " + user.getCreditos());
+        Scanner leitura = new Scanner(System.in);
 
+        System.out.println(user.getNome() + ": " + "⌞ Dados Gerais ⌝ ˎˊ˗");
+        System.out.println("════════════════════════════");
 
-        System.out.println("\n///////dados mágicos das viagens\n");
-        System.out.println("Viagens de Bicicleta: " + user.getViagensBicicleta());
-        System.out.println("Viagens de Trem: " + user.getViagensTrem());
-        System.out.println("Viagens de Bicicleta: " + user.getViagensMetro());
-        System.out.println("Viagens de Bicicleta: " + user.getViagensOnibus());
+        System.out.println("⋮ ≫ Pontos: " + user.getPontos());
+        System.out.println("⋮ ≫ Passagems: " + user.getCreditos());
 
-        System.out.println("////// Dados mágicos dos quilometros\n");
+        System.out.println("\n");
 
-        System.out.println("KMs de Bicicleta: " + user.getKmBicicleta());
-        System.out.println("KMs de Trem: "      + user.getKmTrem());
-        System.out.println("KMs de Bicicleta: " + user.getKmMetro());
-        System.out.println("KMs de Bicicleta: " + user.getKmOnibus());
+        System.out.println(user.getNome() + ": " + "⌞ Dados de Viajem ⌝ ˎˊ˗");
+        System.out.println("════════════════════════════");
+
+        System.out.println("⋮ ≫ Viagens de Bicicleta: " + user.getViagensBicicleta());
+        System.out.println("⋮ ≫ Viagens de Trem: " + user.getViagensTrem());
+        System.out.println("⋮ ≫ Viagens de Bicicleta: " + user.getViagensMetro());
+        System.out.println("⋮ ≫ Viagens de Bicicleta: " + user.getViagensOnibus());
+
+        System.out.println("\n");
+        System.out.println(user.getNome() + ": " + "⌞ Dados de Kilometragem ⌝ ˎˊ˗");
+        System.out.println("════════════════════════════");
+
+        System.out.println("⋮ ≫ KMs de Bicicleta: " + user.getKmBicicleta());
+        System.out.println("⋮ ≫ KMs de Trem: "      + user.getKmTrem());
+        System.out.println("⋮ ≫ KMs de Bicicleta: " + user.getKmMetro());
+        System.out.println("⋮ ≫ KMs de Bicicleta: " + user.getKmOnibus());
+
+        System.out.println("\n" + "› Insira qualquer tecla para continuar: ");
+        leitura.next();
     }
 
     private static void calcularEmissao(){
         Scanner leitura = new Scanner(System.in);
-        System.out.println("Insira o veiculo (sem acentos e minusculo)");
+        System.out.println("▸⋮ ⌞ Insira o veiculo (sem acentos e minusculo) ⌝");
         String veiculo;
         veiculo = leitura.next() + leitura.nextLine();
 
         while (!isVeiculo(veiculo)){
-            System.out.println("Veiculo Inválido!");
-            System.out.println("Insira o veiculo (sem acentos e minusculo)");
+            System.out.println("› Veiculo Inválido!");
+            System.out.println("\n");
+            System.out.println("▸⋮ ⌞ Insira o veiculo (sem acentos) ⌝");
             veiculo = leitura.nextLine();
         }
 
-        System.out.println("Insira a quantidade de quilometros que iremos simular");
+        System.out.println("▸⋮ ⌞ Insira a quantidade de quilometros que iremos simular ⌝");
         double km = leitura.nextDouble();
         Veiculo v = getVeiculo(veiculo);
-        System.out.println(v.calcularEmissao(km) + " quilos de carbono");
-        leitura.next();
+        System.out.println("⋮ ≫ Você vai emitir " + v.calcularEmissao(km) + " Kg de carbono");
 
+        System.out.println("\n" + "› Insira qualquer tecla para continuar: ");
+        leitura.next();
     }
 
     private static void verificarMissoes(){
 
         for (int i = 0; i < missoes.size(); i+=1){
             Missao missao = missoes.get(i);
-            System.out.println(missao.getTitulo() + '\n');
-            System.out.println(missao.getDesc());
-            System.out.println("- - - - --- - - - -");
+            System.out.println("⌞ " + missao.getTitulo() + " ★ ⌝");
+            System.out.println("⋮ ≫ " + missao.getDesc());
+            System.out.println("════════════════════════════════════════════════════════");
+            System.out.println("\n");
         }
-        Scanner scan = new Scanner(System.in);
-        scan.next();
+        Scanner leitura = new Scanner(System.in);
+        System.out.println("\n" + "› Insira qualquer tecla para continuar: ");
+        leitura.next();
     }
 
     private static void simularViagem(){
 
         Scanner leitura = new Scanner(System.in);
-        System.out.println("Insira o veiculo (sem acentos e minusculo)");
+        System.out.println("▸⋮ ⌞ Insira o veiculo (sem acentos) ⌝");
         String veiculo;
         veiculo = leitura.next() + leitura.nextLine();
 
         while (!isVeiculo(veiculo)){
-            System.out.println("Veiculo Inválido!");
-            System.out.println("Insira o veiculo (sem acentos e minusculo)");
+            System.out.println("› Veiculo Inválido!");
+            System.out.println("\n");
+            System.out.println("▸⋮ ⌞ Insira o veiculo (sem acentos) ⌝");
             veiculo = leitura.nextLine();
         }
 
-        System.out.println("Insira a quantidade de quilometros que iremos simular");
+        System.out.println("▸⋮ ⌞ Insira a quantidade de quilometros que iremos simular ⌝");
         double km = leitura.nextDouble();
         Veiculo v = getVeiculo(veiculo);
         switch (veiculo.toLowerCase()){
