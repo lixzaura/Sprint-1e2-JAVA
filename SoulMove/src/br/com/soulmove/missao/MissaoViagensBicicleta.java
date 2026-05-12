@@ -2,7 +2,7 @@ package br.com.soulmove.missao;
 
 import br.com.soulmove.usuario.Usuario;
 
-public class MissaoViagensBicicleta extends Missao implements Cumprivel{
+public class MissaoViagensBicicleta extends Missao{
 
     public MissaoViagensBicicleta(int id_num){
         this.id = "#VBC" + id_num;
@@ -14,7 +14,7 @@ public class MissaoViagensBicicleta extends Missao implements Cumprivel{
 
     @Override
     public boolean verificarCumprida(Usuario user) {
-        if (user.isDisponivel(this) && user.getViagensBicicleta() > 3){
+        if (user.isDisponivel(this) && user.getViagensBicicleta() >= 3){
             this.missaoCumprida(user);
              return true;
         }

@@ -84,6 +84,7 @@ public class SoulMove {
                     System.out.println("\n" + "- - - Opção inválida - - - " + "\n");
                     break;
             }
+            verificarMissaoCumprida();
         }
     }
 
@@ -145,7 +146,7 @@ public class SoulMove {
         }
 
         System.out.println("▸⋮ ⌞ Insira a quantidade de quilometros que iremos simular ⌝");
-        double km = leitura.nextDouble();
+        double km = Double.parseDouble(leitura.nextLine());
         Veiculo v = getVeiculo(veiculo);
         System.out.println("⋮ ≫ Você vai emitir " + v.calcularEmissao(km) + " Kg de carbono");
 
@@ -181,6 +182,17 @@ public class SoulMove {
         leitura.next();
     }
 
+    private static void verificarMissaoCumprida(){
+        Scanner leitura = new Scanner(System.in);
+        for (int i = 0; i < missoes.size(); i++){
+            if (missoes.get(i).verificarCumprida(user)){
+                System.out.println("EBA!! Missao \"" +missoes.get(i).getTitulo() + "\" concluida\nVoce ganhou " + missoes.get(i).getPontos() + " pontos");
+                leitura.nextLine();
+
+            }
+        }
+    }
+
     private static void simularViagem(){
 
         Scanner leitura = new Scanner(System.in);
@@ -196,7 +208,8 @@ public class SoulMove {
         }
 
         System.out.println("▸⋮ ⌞ Insira a quantidade de quilometros que iremos simular ⌝");
-        double km = leitura.nextDouble();
+
+        double km = Double.parseDouble(leitura.nextLine());
         Veiculo v = getVeiculo(veiculo);
         switch (veiculo.toLowerCase()){
             case "carro" ->     {

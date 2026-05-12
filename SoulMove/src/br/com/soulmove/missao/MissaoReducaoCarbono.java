@@ -6,7 +6,7 @@ import br.com.soulmove.veiculo.Metro;
 import br.com.soulmove.veiculo.Onibus;
 import br.com.soulmove.veiculo.Trem;
 
-public class MissaoReducaoCarbono extends Missao implements Cumprivel{
+public class MissaoReducaoCarbono extends Missao{
 
     public MissaoReducaoCarbono(int id_num){
         this.id = "#RC" + id_num;

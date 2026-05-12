@@ -2,7 +2,7 @@ package br.com.soulmove.missao;
 
 import br.com.soulmove.usuario.Usuario;
 
-public class MissaoViagensColetivo extends Missao implements Cumprivel{
+public class MissaoViagensColetivo extends Missao{
 
     public MissaoViagensColetivo(int id_num){
         this.id = "#VTC" + id_num;
