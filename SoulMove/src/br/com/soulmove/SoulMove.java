@@ -6,6 +6,7 @@ import br.com.soulmove.missao.MissaoViagensBicicleta;
 import br.com.soulmove.missao.MissaoViagensColetivo;
 import br.com.soulmove.usuario.Usuario;
 import br.com.soulmove.veiculo.*;
+import br.com.soulmove.viagem.Viagem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,6 +40,7 @@ public class SoulMove {
                         ⋮ ⌗ ┆ 4. Converter pontos.
                         ⋮ ⌗ ┆ 5. Verificar missões.
                         ⋮ ⌗ ┆ 6. Simular viajem.
+                        ⋮ ⌗ ┆ 7. Ver histórico.
                         ⋮ ⌗ ┆ 0. SAIR DO PROGRAMA.
                     """);
 
@@ -74,6 +76,11 @@ public class SoulMove {
                 case 6:
                     System.out.println("\n" + "- - - Simular viajem - - -" + "\n");
                     simularViagem();
+                    break;
+
+                case 7:
+                    System.out.println("\n" + "- - - Ver histórico - - -" + "\n");
+                    verHistorico();
                     break;
 
                 case 0:
@@ -207,40 +214,27 @@ public class SoulMove {
             veiculo = leitura.nextLine();
         }
 
+        System.out.println("▸⋮ ⌞ Insira o local de partida ⌝");
+        String partida = leitura.nextLine();
+
+        System.out.println("▸⋮ ⌞ Insira o destino simulado ⌝");
+        String destino = leitura.nextLine();
+
+
         System.out.println("▸⋮ ⌞ Insira a quantidade de quilometros que iremos simular ⌝");
 
         double km = Double.parseDouble(leitura.nextLine());
         Veiculo v = getVeiculo(veiculo);
-        switch (veiculo.toLowerCase()){
-            case "carro" ->     {
-                //user.addViagensCarro();
-                //user.addKmCarro();
-
-            }
-            case "trem" ->      {
-                user.addViagemTrem();
-                user.addKmTrem(km);
-            }
-            case "metro" ->     {
-                user.addViagemMetro();
-                user.addKmMetro(km);
-            }
-            case "onibus" ->    {
-                user.addViagemOnibus();
-                user.addKmOnibus(km);
-            }
-            case "bicicleta" -> {
-                user.addViagemBicicleta();
-                user.addKmBicicleta(km);
-            }
-            case "moto" ->      {
-                //user.addViagensMoto();
-                //user.addKmMoto();
-            }
-        }
+        Viagem viagem = new Viagem(v, km, partida, destino);
+        user.addViagem(viagem);
 
 
     }
+
+    private static void verHistorico(){
+
+    }
+
 
     private static boolean isVeiculo(String veiculo){
         switch (veiculo.toLowerCase()){

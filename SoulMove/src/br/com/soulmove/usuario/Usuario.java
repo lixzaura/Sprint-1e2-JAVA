@@ -1,6 +1,8 @@
 package br.com.soulmove.usuario;
 
 import br.com.soulmove.missao.Missao;
+import br.com.soulmove.veiculo.*;
+import br.com.soulmove.viagem.Viagem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +23,8 @@ public class Usuario {
     private double kmOnibus;
 
     private List<String> missoesCumpridas = new ArrayList<>(); //pelo id
+
+    private List<Viagem> historicoViagens = new ArrayList<>();
 
     //construtor
 
@@ -120,5 +124,39 @@ public class Usuario {
 
     public int getViagensColetivo() {
         return viagensTrem + viagensMetro + viagensOnibus;
+    }
+
+    public void addViagem(Viagem viagem) {
+        this.historicoViagens.add(viagem);
+        double km = viagem.getKm();
+        switch (viagem.getVeiculo()){
+            case Carro carro ->     {
+                //addViagensCarro();
+                //addKmCarro();
+
+
+            }
+            case Trem trem ->      {
+                addViagemTrem();
+                addKmTrem(km);
+            }
+            case Metro metro ->     {
+                addViagemMetro();
+                addKmMetro(km);
+            }
+            case Onibus onibus ->    {
+                addViagemOnibus();
+                addKmOnibus(km);
+            }
+            case Bicicleta bicicleta -> {
+                addViagemBicicleta();
+                addKmBicicleta(km);
+            }
+            case Moto moto ->      {
+               // addViagensMoto();
+               // addKmMoto();
+            }
+            default -> {}
+        }
     }
 }
