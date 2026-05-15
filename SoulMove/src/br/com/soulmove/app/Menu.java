@@ -5,12 +5,14 @@ import br.com.soulmove.usuario.Usuario;
 import br.com.soulmove.veiculo.*;
 import br.com.soulmove.viagem.Viagem;
 
+import javax.swing.*;
 import java.util.Scanner;
 
 import static br.com.soulmove.app.SoulMove.missoes;
 import static br.com.soulmove.app.SoulMove.user;
 
 public class Menu {
+
     public static Veiculo getVeiculo(String v){
         switch (v.toLowerCase()){
             case "carro" ->     {return new Carro();}
@@ -64,6 +66,10 @@ public class Menu {
 
     static void verificarDados(){
         Scanner leitura = new Scanner(System.in);
+
+        //JOptionPane.showMessageDialog(
+        //        null,
+        //       "OI");
 
         System.out.println(user.getNome() + ": " + "⌞ Dados Gerais ⌝ ˎˊ˗");
         System.out.println("════════════════════════════");
@@ -180,6 +186,10 @@ public class Menu {
         Scanner leitura = new Scanner(System.in);
         for (int i = 0; i < missoes.size(); i++){
             if (missoes.get(i).verificarCumprida(user)){
+                JOptionPane.showMessageDialog(
+                        null,
+                        "EBA!! Missao \"" +missoes.get(i).getTitulo() + "\" concluida\nVoce ganhou " + missoes.get(i).getPontos() + " pontos"
+                );
                 System.out.println("EBA!! Missao \"" +missoes.get(i).getTitulo() + "\" concluida\nVoce ganhou " + missoes.get(i).getPontos() + " pontos");
                 leitura.nextLine();
 

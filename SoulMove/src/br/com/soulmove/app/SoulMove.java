@@ -78,7 +78,7 @@ public class SoulMove {
 
                 case 7:
                     System.out.println("\n" + "- - - Ver histórico - - -" + "\n");
-                    verHistorico();
+                    //verHistorico();
                     break;
 
                 case 0:
@@ -95,9 +95,7 @@ public class SoulMove {
 
 
 
-    private static void verHistorico(){
 
-    }
 
 
 
