@@ -33,12 +33,6 @@ public class Usuario {
         this.nome = nome;
         this.pontos = 0;
         this.creditos = 0.0;
-        this.viagensBicicleta = 0;
-        this.kmBicicleta = 0.;
-        this.viagensTrem = 0;
-        this.kmTrem = 0.0;
-        this.viagensOnibus = 0;
-        this.kmOnibus = 0.0;
     }
 
 
@@ -57,37 +51,6 @@ public class Usuario {
         return creditos;
     }
 
-    public int getViagensBicicleta() {
-        return viagensBicicleta;
-    }
-
-    public int getViagensTrem() {
-        return viagensTrem;
-    }
-
-    public int getViagensOnibus() {
-        return viagensOnibus;
-    }
-
-    public int getViagensMetro() {
-        return viagensMetro;
-    }
-
-    public double getKmBicicleta() {
-        return kmBicicleta;
-    }
-
-    public double getKmTrem() {
-        return kmTrem;
-    }
-
-    public double getKmOnibus() {
-        return kmOnibus;
-    }
-
-    public double getKmMetro() {
-        return kmMetro;
-    }
 
     //outros métodos
 
@@ -95,16 +58,6 @@ public class Usuario {
     public void addPontos(int pontos){
         this.pontos += pontos;
     }
-
-    public void addViagemBicicleta(){this.viagensBicicleta += 1;}
-    public void addViagemTrem(){this.viagensTrem += 1;}
-    public void addViagemOnibus(){this.viagensOnibus += 1;}
-    public void addViagemMetro(){this.viagensMetro +=1;}
-
-    public void addKmBicicleta(double km){this.kmBicicleta +=km;}
-    public void addKmTrem(double km){this.kmTrem +=km;}
-    public void addKmOnibus(double km){this.kmOnibus +=km;}
-    public void addKmMetro(double km){this.kmMetro +=km;}
 
 
     public void addMissao(Missao missao){
@@ -130,35 +83,6 @@ public class Usuario {
     public void addViagem(Viagem viagem) {
         this.historicoViagens.add(viagem);
         double km = viagem.getKm();
-        switch (viagem.getVeiculo()){
-            case Carro carro ->     {
-                //addViagensCarro();
-                //addKmCarro();
-
-
-            }
-            case Trem trem ->      {
-                addViagemTrem();
-                addKmTrem(km);
-            }
-            case Metro metro ->     {
-                addViagemMetro();
-                addKmMetro(km);
-            }
-            case Onibus onibus ->    {
-                addViagemOnibus();
-                addKmOnibus(km);
-            }
-            case Bicicleta bicicleta -> {
-                addViagemBicicleta();
-                addKmBicicleta(km);
-            }
-            case Moto moto ->      {
-               // addViagensMoto();
-               // addKmMoto();
-            }
-            default -> {}
-        }
     }
 
     public int getViagens(String veiculo){

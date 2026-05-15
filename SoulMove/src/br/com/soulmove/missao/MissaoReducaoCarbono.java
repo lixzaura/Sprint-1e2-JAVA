@@ -25,10 +25,10 @@ public class MissaoReducaoCarbono extends Missao{
             Trem trem = new Trem();
             Metro metro = new Metro();
 
-            double emissaoOnibus = onibus.calcularEmissao(user.getKmOnibus());
-            double emissaoTrem = trem.calcularEmissao(user.getKmTrem());
-            double emissaoMetro = metro.calcularEmissao(user.getKmMetro());
-            double kmTotal = user.getKmBicicleta() + user.getKmMetro() + user.getKmTrem() + user.getKmOnibus();
+            double emissaoOnibus = onibus.calcularEmissao(user.getKm("onibus"));
+            double emissaoTrem = trem.calcularEmissao(user.getKm("Trem"));
+            double emissaoMetro = metro.calcularEmissao(user.getKm("Metro"));
+            double kmTotal = user.getKm("Bicicleta") + user.getKm("Metro") + user.getKm("Trem") + user.getKm("Onibus");
 
             double emissaoTotalCarro = carro.calcularEmissao(kmTotal);
             if (emissaoTotalCarro - (emissaoMetro + emissaoOnibus + emissaoTrem) >= 1000){
