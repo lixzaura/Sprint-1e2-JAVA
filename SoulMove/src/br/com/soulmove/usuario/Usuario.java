@@ -1,5 +1,6 @@
 package br.com.soulmove.usuario;
 
+import br.com.soulmove.app.Menu;
 import br.com.soulmove.missao.Missao;
 import br.com.soulmove.veiculo.*;
 import br.com.soulmove.viagem.Viagem;
@@ -159,4 +160,39 @@ public class Usuario {
             default -> {}
         }
     }
+
+    public int getViagens(String veiculo){
+        veiculo = veiculo.toLowerCase();
+        int viagens = 0;
+        for (int i = 0; i < historicoViagens.size(); i++){
+            Viagem viagem = historicoViagens.get(i);
+            String viagemV = Menu.getVeiculo(viagem.getVeiculo());
+            if (veiculo.equals(viagemV))
+                viagens +=1;
+            else if (veiculo.equals("coletivo")) {
+                if(viagemV.equals("trem") || viagemV.equals("metro") || viagemV.equals("onibus")){
+                    viagens +=1;
+                }
+            }
+        }
+        return viagens;
+    }
+
+    public double getKm(String veiculo){
+        veiculo = veiculo.toLowerCase();
+        double viagens = 0;
+        for (int i = 0; i < historicoViagens.size(); i++){
+            Viagem viagem = historicoViagens.get(i);
+            String viagemV = Menu.getVeiculo(viagem.getVeiculo());
+            if (veiculo.equals(viagemV))
+                viagens += viagem.getKm();
+            else if (veiculo.equals("coletivo")) {
+                if(viagemV.equals("trem") || viagemV.equals("metro") || viagemV.equals("onibus")){
+                    viagens += viagem.getKm();
+                }
+            }
+        }
+        return viagens;
+    }
+
 }
