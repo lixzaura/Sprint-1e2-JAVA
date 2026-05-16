@@ -14,14 +14,6 @@ public class Usuario {
     private int pontos;
 
     private double creditos;
-    private int viagensBicicleta;
-    private double kmBicicleta;
-    private int viagensTrem;
-    private double kmTrem;
-    private int viagensMetro;
-    private double kmMetro;
-    private int viagensOnibus;
-    private double kmOnibus;
 
     private List<String> missoesCumpridas = new ArrayList<>(); //pelo id
 
@@ -76,9 +68,6 @@ public class Usuario {
     }
 
 
-    public int getViagensColetivo() {
-        return viagensTrem + viagensMetro + viagensOnibus;
-    }
 
     public void addViagem(Viagem viagem) {
         this.historicoViagens.add(viagem);

@@ -14,7 +14,7 @@ public class MissaoViagensColetivo extends Missao{
 
     @Override
     public boolean verificarCumprida(Usuario user) {
-        if (user.isDisponivel(this) && user.getViagensColetivo() > 5){
+        if (user.isDisponivel(this) && user.getViagens("Coletivo") > 5){
             this.missaoCumprida(user);
             return true;
         }

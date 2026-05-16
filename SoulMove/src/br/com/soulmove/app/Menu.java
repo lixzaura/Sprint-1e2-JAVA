@@ -65,11 +65,9 @@ public class Menu {
     }
 
     static void verificarDados(){
-        Scanner leitura = new Scanner(System.in);
+        StringBuilder msg = new StringBuilder();
 
-        //JOptionPane.showMessageDialog(
-        //        null,
-        //       "OI");
+
 
         System.out.println(user.getNome() + ": " + "⌞ Dados Gerais ⌝ ˎˊ˗");
         System.out.println("════════════════════════════");
@@ -96,8 +94,35 @@ public class Menu {
         System.out.println("⋮ ≫ KMs de Metro: " + user.getKm("Metro"));
         System.out.println("⋮ ≫ KMs de Onibus: " + user.getKm("Onibus"));
 
-        System.out.println("\n" + "› Insira qualquer tecla para continuar: ");
-        leitura.next();
+        msg.append(user.getNome()+ ": " + "⌞ Dados Gerais ⌝ ˎˊ˗").append("\n");
+        msg.append("════════════════════════════").append("\n");
+
+        msg.append("⋮ ≫ Pontos: " + user.getPontos()).append("\n");
+        msg.append("⋮ ≫ Passagems: " + user.getCreditos()).append("\n");
+
+        msg.append("\n").append("\n");
+
+        msg.append(user.getNome() + ": " + "⌞ Dados de Viajem ⌝ ˎˊ˗").append("\n");
+        msg.append("════════════════════════════").append("\n");
+
+        msg.append("⋮ ≫ Viagens de Bicicleta: " + user.getViagens("bicicleta")).append("\n");
+        msg.append("⋮ ≫ Viagens de Trem: " + user.getViagens("trem")).append("\n");
+        msg.append("⋮ ≫ Viagens de Metro: " + user.getViagens("metro")).append("\n");
+        msg.append("⋮ ≫ Viagens de Onibus: " + user.getViagens("onibus")).append("\n");
+
+        msg.append("\n");
+        msg.append(user.getNome() + ": " + "⌞ Dados de Kilometragem ⌝ ˎˊ˗").append("\n");
+        msg.append("════════════════════════════").append("\n");
+
+        msg.append("⋮ ≫ KMs de Bicicleta: " + user.getKm("Bicicleta")).append("\n");
+        msg.append("⋮ ≫ KMs de Trem: "      + user.getKm("Trem")).append("\n");
+        msg.append("⋮ ≫ KMs de Metro: " + user.getKm("Metro")).append("\n");
+        msg.append("⋮ ≫ KMs de Onibus: " + user.getKm("Onibus")).append("\n");
+
+        JOptionPane.showMessageDialog(
+                null,
+                msg
+        );
     }
 
     static void calcularEmissao(){
@@ -137,6 +162,7 @@ public class Menu {
     }
 
     static void verificarMissoes(){
+        StringBuilder msg = new StringBuilder();
 
         for (int i = 0; i < missoes.size(); i+=1){
             Missao missao = missoes.get(i);
@@ -144,10 +170,17 @@ public class Menu {
             System.out.println("⋮ ≫ " + missao.getDesc());
             System.out.println("════════════════════════════════════════════════════════");
             System.out.println("\n");
+            msg.append("⌞ ").append(missao.getTitulo()).append(" ★ ⌝").append('\n');
+            msg.append("⋮ ≫ ").append(missao.getDesc()).append('\n');
+            msg.append("════════════════════════════════════════════════════════").append('\n');
+            msg.append("\n").append('\n');
         }
-        Scanner leitura = new Scanner(System.in);
-        System.out.println("\n" + "› Insira qualquer tecla para continuar: ");
-        leitura.next();
+
+        JOptionPane.showMessageDialog(
+                null,
+                msg
+        );
+
     }
 
 
@@ -182,6 +215,10 @@ public class Menu {
 
 
     }
+    static void verHistorico() {
+        int numViagens = 0;
+        //if user
+    }
     static void verificarMissaoCumprida(){
         Scanner leitura = new Scanner(System.in);
         for (int i = 0; i < missoes.size(); i++){
@@ -191,9 +228,10 @@ public class Menu {
                         "EBA!! Missao \"" +missoes.get(i).getTitulo() + "\" concluida\nVoce ganhou " + missoes.get(i).getPontos() + " pontos"
                 );
                 System.out.println("EBA!! Missao \"" +missoes.get(i).getTitulo() + "\" concluida\nVoce ganhou " + missoes.get(i).getPontos() + " pontos");
-                leitura.nextLine();
 
             }
         }
     }
+
+
 }
