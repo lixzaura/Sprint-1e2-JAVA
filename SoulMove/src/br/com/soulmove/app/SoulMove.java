@@ -18,12 +18,13 @@ public class SoulMove {
 
     public static void main(String[] args) {
 
-
+        //Criando as missoes
         missoes.add(new MissaoViagensBicicleta(1));
         missoes.add(new MissaoViagensColetivo (1));
         missoes.add(new MissaoReducaoCarbono  (1));
 
         Scanner leitura = new Scanner(System.in);
+        Menu.cadastrarUsuario();
 
         int opcao = -1;
 

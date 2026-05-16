@@ -14,6 +14,7 @@ import static br.com.soulmove.app.SoulMove.user;
 
 public class Menu {
 
+    //Retorna um objeto veiculo com esse nome
     public static Veiculo getVeiculo(String v){
         switch (v.toLowerCase()){
             case "carro" ->     {return new Carro();}
@@ -27,6 +28,7 @@ public class Menu {
         return null;
     }
 
+    //Retorna o nome do veiculo
     public static String getVeiculo(Veiculo v){
         switch (v){
             case Carro carro ->         {return "carro";}
@@ -39,7 +41,7 @@ public class Menu {
         }
     }
 
-
+    //Verifica se o nome é um veiculo existente
     public static boolean isVeiculo(String veiculo){
         switch (veiculo.toLowerCase()){
             case "carro" ->     {return true;}
@@ -60,9 +62,7 @@ public class Menu {
 
         Usuario new_user = new Usuario(nome);
 
-        System.out.println("\n" + "› Insira qualquer tecla para continuar: ");
-        leitura.next();
-        user = new_user;
+        user = new_user; //muda o user atual
     }
 
     static void verificarDados(){
@@ -95,6 +95,8 @@ public class Menu {
         System.out.println("⋮ ≫ KMs de Metro: " + user.getKm("Metro"));
         System.out.println("⋮ ≫ KMs de Onibus: " + user.getKm("Onibus"));
 
+
+        //Adiciona o text na string do JOptionPane
         msg.append(user.getNome()+ ": " + "⌞ Dados Gerais ⌝ ˎˊ˗").append("\n");
         msg.append("════════════════════════════").append("\n");
 
@@ -144,8 +146,10 @@ public class Menu {
         Veiculo v = getVeiculo(veiculo);
         System.out.println("⋮ ≫ Você vai emitir " + v.calcularEmissao(km) + " Kg de carbono");
 
-        System.out.println("\n" + "› Insira qualquer tecla para continuar: ");
-        leitura.next();
+        JOptionPane.showMessageDialog(
+                null,
+                "⋮ ≫ Você vai emitir " + v.calcularEmissao(km) + " Kg de carbono"
+        );
     }
 
     static void converterPontos(){
@@ -158,8 +162,10 @@ public class Menu {
 
         System.out.println("⋮ ≫ " + pontosCon + " pontos é igual a: R$" + String.format("%.2f", conversao));
 
-        System.out.println("\n" + "› Insira qualquer tecla para continuar: ");
-        leitura.next();
+        JOptionPane.showMessageDialog(
+                null,
+                "⋮ ≫ " + pontosCon + " pontos é igual a: R$" + String.format("%.2f", conversao)
+        );
     }
 
     static void verificarMissoes(){
@@ -171,6 +177,8 @@ public class Menu {
             System.out.println("⋮ ≫ " + missao.getDesc());
             System.out.println("════════════════════════════════════════════════════════");
             System.out.println("\n");
+
+            //Adiciona o text na string do JOptionPane
             msg.append("⌞ ").append(missao.getTitulo()).append(" ★ ⌝").append('\n');
             msg.append("⋮ ≫ ").append(missao.getDesc()).append('\n');
             msg.append("════════════════════════════════════════════════════════").append('\n');
@@ -236,6 +244,7 @@ public class Menu {
                 System.out.println("════════════════════════════════════════════════════════");
                 System.out.println('\n');
 
+                //Adiciona o text na string do JOptionPane
                 msg.append("⋮ ≫ Partida: " + viagem.getPartida()).append('\n');
                 msg.append("⋮ ≫ Destino: " + viagem.getDestino()).append('\n');
                 msg.append("⋮ ≫ Distancia: " + viagem.getKm()).append('\n');
@@ -254,6 +263,7 @@ public class Menu {
                 System.out.println("════════════════════════════════════════════════════════");
                 System.out.println('\n');
 
+                //Adiciona o text na string do JOptionPane
                 msg.append("⋮ ≫ Partida: " + viagem.getPartida()).append('\n');
                 msg.append("⋮ ≫ Destino: " + viagem.getDestino()).append('\n');
                 msg.append("⋮ ≫ Distancia: " + viagem.getKm()).append('\n');
