@@ -43,6 +43,9 @@ public class Usuario {
         return creditos;
     }
 
+    public List<Viagem> getHistoricoViagens() {
+        return historicoViagens;
+    }
 
     //outros métodos
 
@@ -60,18 +63,18 @@ public class Usuario {
         missoesCumpridas.add(id);
     }
 
+    public void addViagem(Viagem viagem) {
+        this.historicoViagens.add(viagem);
+        double km = viagem.getKm();
+    }
+
+
+    //Geters especiais
     public boolean isDisponivel(Missao missao){
         if(missoesCumpridas.contains(missao.getId())){
             return false;
         }
         return true;
-    }
-
-
-
-    public void addViagem(Viagem viagem) {
-        this.historicoViagens.add(viagem);
-        double km = viagem.getKm();
     }
 
     public int getViagens(String veiculo){

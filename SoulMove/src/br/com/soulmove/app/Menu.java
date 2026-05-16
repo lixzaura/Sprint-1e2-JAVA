@@ -6,6 +6,7 @@ import br.com.soulmove.veiculo.*;
 import br.com.soulmove.viagem.Viagem;
 
 import javax.swing.*;
+import java.util.List;
 import java.util.Scanner;
 
 import static br.com.soulmove.app.SoulMove.missoes;
@@ -216,8 +217,55 @@ public class Menu {
 
     }
     static void verHistorico() {
-        int numViagens = 0;
-        //if user
+        StringBuilder msg = new StringBuilder();
+
+        List<Viagem> viagens = user.getHistoricoViagens();
+        if (viagens.isEmpty()){
+
+            System.out.println("› Nenhuma viagem Cadastrada!");
+            msg.append("› Nenhuma viagem Cadastrada!");
+
+        } else if (viagens.size() <=3) {
+
+            for (int i = 1; i <= viagens.size(); i++){
+                Viagem viagem = viagens.get(viagens.size()-i);
+
+                System.out.println("⋮ ≫ Partida: " + viagem.getPartida());
+                System.out.println("⋮ ≫ Destino: " + viagem.getDestino());
+                System.out.println("⋮ ≫ Distancia: " + viagem.getKm());
+                System.out.println("════════════════════════════════════════════════════════");
+                System.out.println('\n');
+
+                msg.append("⋮ ≫ Partida: " + viagem.getPartida()).append('\n');
+                msg.append("⋮ ≫ Destino: " + viagem.getDestino()).append('\n');
+                msg.append("⋮ ≫ Distancia: " + viagem.getKm()).append('\n');
+                msg.append("════════════════════════════════════════════════════════").append('\n');
+                msg.append('\n').append('\n');
+            }
+            
+        } else {
+
+            for (int i = 1; i <= 3; i++){
+                Viagem viagem = viagens.get(viagens.size()-i);
+
+                System.out.println("⋮ ≫ Partida: " + viagem.getPartida());
+                System.out.println("⋮ ≫ Destino: " + viagem.getDestino());
+                System.out.println("⋮ ≫ Distancia: " + viagem.getKm());
+                System.out.println("════════════════════════════════════════════════════════");
+                System.out.println('\n');
+
+                msg.append("⋮ ≫ Partida: " + viagem.getPartida()).append('\n');
+                msg.append("⋮ ≫ Destino: " + viagem.getDestino()).append('\n');
+                msg.append("⋮ ≫ Distancia: " + viagem.getKm()).append('\n');
+                msg.append("════════════════════════════════════════════════════════").append('\n');
+                msg.append('\n').append('\n');
+            }
+
+        }
+        JOptionPane.showMessageDialog(
+                null,
+                msg
+        );
     }
     static void verificarMissaoCumprida(){
         Scanner leitura = new Scanner(System.in);
